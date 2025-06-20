@@ -9187,6 +9187,8 @@ with pkgs;
     };
   };
 
+  opencl-caps-viewer = libsForQt5.callPackage ../tools/graphics/opencl-caps-viewer { };
+
   opencsg = callPackage ../development/libraries/opencsg { };
 
   opencv4 = callPackage ../development/libraries/opencv/4.x.nix {
