@@ -2,7 +2,7 @@
 {
   lib,
   stdenv,
-  fetchFromGitLab,
+  fetchFromGitHub,
   bison,
   flex,
   libxml2,
@@ -15,7 +15,7 @@
   zlib,
 }:
 let
-  common = import ./common.nix { inherit lib fetchFromGitLab; };
+  common = import ./common.nix { inherit lib fetchFromGitHub; };
 in
 stdenv.mkDerivation {
   inherit (common)

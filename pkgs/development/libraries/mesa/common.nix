@@ -1,19 +1,22 @@
-{ lib, fetchFromGitLab }:
+{ lib, fetchFromGitHub }:
 # When updating this package, please verify at least these build (assuming x86_64-linux):
 # nix build .#mesa .#pkgsi686Linux.mesa .#pkgsCross.aarch64-multiplatform.mesa .#pkgsMusl.mesa
 # Ideally also verify:
 # nix build .#legacyPackages.x86_64-darwin.mesa .#legacyPackages.aarch64-darwin.mesa
 rec {
   pname = "mesa";
-  version = "25.0.7";
+  version = "25.0.6";
 
-  src = fetchFromGitLab {
-    domain = "gitlab.freedesktop.org";
-    owner = "mesa";
-    repo = "mesa";
-    rev = "mesa-${version}";
-    hash = "sha256-zG/L2MArG6e4SRPii5uwQvYSWxGuAWCI/dNzEn8CB9c=";
+  src = fetchFromGitHub {
+    owner = "andrewgigena";
+    repo = "mesa-terakan";
+    rev = "terakan-mesa-${version}";
+    hash = "sha256-vmQtTB1/O51AW9N+vMMj5aKsXdZh8oYOuZBPZAeUB0w=";
   };
+  # src = builtins.path {
+  #   name = "mesa-terakan";
+  #   path = /disks/frodo/development/mesa-terakan;
+  # };
 
   meta = {
     description = "Open source 3D graphics library";

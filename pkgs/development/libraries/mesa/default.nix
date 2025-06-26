@@ -6,7 +6,7 @@
   elfutils,
   expat,
   fetchCrate,
-  fetchFromGitLab,
+  fetchFromGitHub,
   file,
   flex,
   glslang,
@@ -75,6 +75,7 @@
   vulkanDrivers ?
     [
       "amd" # AMD (aka RADV)
+      "amd_terascale" # AMD for Terascale Architecture
       "intel" # new Intel (aka ANV)
       "microsoft-experimental" # WSL virtualized GPU (aka DZN/Dozen)
       "nouveau" # Nouveau (aka NVK)
@@ -149,7 +150,7 @@ let
 
   needNativeCLC = !stdenv.buildPlatform.canExecute stdenv.hostPlatform;
 
-  common = import ./common.nix { inherit lib fetchFromGitLab; };
+  common = import ./common.nix { inherit lib fetchFromGitHub; };
 in
 stdenv.mkDerivation {
   inherit (common)
